@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>HomePage</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.slim.js"
+            integrity="sha256-tXm+sa1uzsbFnbXt8GJqsgi2Tw+m4BLGDof6eUPjbtk=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+<div style="text-align: center">
+    <h1>Welcome <span th:text="${userName}"></span></h1>
+    <a th:href="@{/logout}" style="font-size: 26px; color:#069bf7;font-weight: bold; cursor:pointer" >Logout</a>
+
+    <table style="border:1px solid;">
+        <thead>
+        <tr>
+            <th>Login ID</th>
+            <th>Browser</th>
+            <th>Operating System</th>
+            <th>Country</th>
+            <th>State</th>
+            <th>City</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+            <th>Login Time</th>
+            <th>User</th>
+            <th>Time Spend</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="u : ${userActivity}">
+
+            <th th:text="${u.uId}"></th>
+            <td th:text="${u.browserName}"></td>
+            <td th:text="${u.osName}"></td>
+            <td th:text="${u.country}"></td>
+            <td th:text="${u.regionName}"></td>
+            <td th:text="${u.city}"></td>
+            <td th:text="${u.lat}"></td>
+            <td th:text="${u.lon}"></td>
+            <td th:text="${u.loginTime}"></td>
+            <td th:text="${u.userName}"></td>
+            <td th:text="${u.timeSpend+' Seconds'}"></td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script src="/script.js"></script>
+</body>
+</html>
